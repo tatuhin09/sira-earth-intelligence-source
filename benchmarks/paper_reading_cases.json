@@ -1,0 +1,89 @@
+{
+  "suite_id": "paper-reading-v1",
+  "kind": "synthetic_paper_evidence_regression_not_live_quality",
+  "cases": [
+    {
+      "id": "single-abstract",
+      "query": "evidence verification artificial intelligence",
+      "papers": [
+        {
+          "paper_id": "arxiv:2609.10001",
+          "title": "Evidence Verification for Artificial Intelligence",
+          "abstract": "Evidence verification methods are evaluated for artificial intelligence systems using grounded source comparisons.",
+          "authors": ["Ada Researcher"],
+          "year": 2026,
+          "doi": "10.1000/paper.1",
+          "url": "https://arxiv.org/abs/2609.10001",
+          "open_access_pdf_url": "https://arxiv.org/pdf/2609.10001",
+          "retrieved_at": "2026-09-17T00:00:00+00:00",
+          "provider": "arxiv",
+          "published_date": "2026-09-16",
+          "providers": ["arxiv"]
+        }
+      ],
+      "expected_status": "completed",
+      "expected_sources_read": 1,
+      "expected_abstracts_used": 1
+    },
+    {
+      "id": "mixed-readable",
+      "query": "grounded synthesis",
+      "papers": [
+        {
+          "paper_id": "arxiv:2609.10002",
+          "title": "Grounded Synthesis",
+          "abstract": "Grounded synthesis constrains claims to evidence passages and preserves provenance.",
+          "authors": ["Ben Scholar"],
+          "year": 2026,
+          "doi": null,
+          "url": "https://arxiv.org/abs/2609.10002",
+          "open_access_pdf_url": null,
+          "retrieved_at": "2026-09-17T00:00:00+00:00",
+          "provider": "arxiv",
+          "published_date": "2026-09-16",
+          "providers": ["arxiv"]
+        },
+        {
+          "paper_id": "crossref:10.1000/no-content",
+          "title": "Metadata Only",
+          "abstract": null,
+          "authors": ["Cara Scientist"],
+          "year": 2025,
+          "doi": "10.1000/no-content",
+          "url": "https://doi.org/10.1000/no-content",
+          "open_access_pdf_url": null,
+          "retrieved_at": "2026-09-17T00:00:00+00:00",
+          "provider": "crossref",
+          "published_date": null,
+          "providers": ["crossref"]
+        }
+      ],
+      "expected_status": "partial",
+      "expected_sources_read": 1,
+      "expected_abstracts_used": 1
+    },
+    {
+      "id": "no-content",
+      "query": "metadata only",
+      "papers": [
+        {
+          "paper_id": "crossref:10.1000/empty",
+          "title": "Metadata Without Abstract",
+          "abstract": null,
+          "authors": ["Dana Researcher"],
+          "year": 2025,
+          "doi": "10.1000/empty",
+          "url": "https://doi.org/10.1000/empty",
+          "open_access_pdf_url": null,
+          "retrieved_at": "2026-09-17T00:00:00+00:00",
+          "provider": "crossref",
+          "published_date": null,
+          "providers": ["crossref"]
+        }
+      ],
+      "expected_status": "failed",
+      "expected_sources_read": 0,
+      "expected_abstracts_used": 0
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-synthesis-structural-v1",
+  "kind": "synthetic_synthesis_regression_not_factual_quality",
+  "dataset_sha256": "f81ddbb0aaf86dfd5aae5d42d13abb4c1c533e8a0a82d5cba7f74cd539fd9c87",
+  "code_sha256": "7237173a8b5d2951bf1cce001f1dea9a74c1fe9df4c0715709053886b9379e5f",
+  "passed": 5,
+  "failed": 0,
+  "api_requests": 0,
+  "cases": [
+    {
+      "case_id": "supported_claim",
+      "passed": true,
+      "run_id": "dc3a51e953534fe797935606bd864ff7",
+      "status": "completed",
+      "accepted_claims": 1
+    },
+    {
+      "case_id": "unsupported_claim",
+      "passed": true,
+      "run_id": "4cef7544d5c14ea89d06ab80e703d6cb",
+      "status": "insufficient_evidence",
+      "accepted_claims": 0
+    },
+    {
+      "case_id": "mixed_claim",
+      "passed": true,
+      "run_id": "4a4ac14a8a784ef2b4d4529efb3361d7",
+      "status": "insufficient_evidence",
+      "accepted_claims": 0
+    },
+    {
+      "case_id": "unknown_passage",
+      "passed": true,
+      "run_id": "967b8154e429467f88cf550253eb580c",
+      "status": "insufficient_evidence",
+      "accepted_claims": 0
+    },
+    {
+      "case_id": "hostile_text_inert",
+      "passed": true,
+      "run_id": "a6de641a28e2427eb5efe136f6fcf230",
+      "status": "completed",
+      "accepted_claims": 1
+    }
+  ],
+  "limitations": [
+    "Offline fixtures do not measure factual accuracy.",
+    "Fixture verdicts do not evaluate live model quality."
+  ]
+}

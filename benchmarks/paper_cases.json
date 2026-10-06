@@ -1,0 +1,127 @@
+{
+  "suite_id": "paper-provider-v2",
+  "kind": "synthetic_paper_provider_regression_not_live_quality",
+  "cases": [
+    {
+      "id": "paper-metadata",
+      "query": "evidence verification",
+      "papers": [
+        {
+          "paper_id": "fx-1",
+          "title": "Evidence Verification Systems",
+          "abstract": "A fixture abstract.",
+          "authors": [
+            "Ada Researcher",
+            "Ben Scholar"
+          ],
+          "year": 2026,
+          "doi": "10.1000/fx1",
+          "url": "https://example.org/papers/fx-1",
+          "open_access_pdf_url": "https://example.org/papers/fx-1.pdf",
+          "retrieved_at": "2026-09-17T00:00:00+00:00"
+        },
+        {
+          "paper_id": "fx-2",
+          "title": "Grounded Synthesis",
+          "abstract": null,
+          "authors": [
+            "Cara Scientist"
+          ],
+          "year": 2025,
+          "doi": null,
+          "url": "https://example.org/papers/fx-2",
+          "open_access_pdf_url": null,
+          "retrieved_at": "2026-09-17T00:00:00+00:00"
+        }
+      ],
+      "expected_ids": [
+        "fx-1",
+        "fx-2"
+      ],
+      "expected_status": "completed",
+      "expected_duplicates_removed": 0
+    },
+    {
+      "id": "paper-dedup",
+      "query": "duplicate scholarly result",
+      "papers": [
+        {
+          "paper_id": "dup-a",
+          "title": "Original",
+          "abstract": "A.",
+          "authors": [
+            "Dana"
+          ],
+          "year": 2024,
+          "doi": "10.1000/shared",
+          "url": "https://example.org/papers/dup-a",
+          "open_access_pdf_url": null,
+          "retrieved_at": "2026-09-17T00:00:00+00:00"
+        },
+        {
+          "paper_id": "dup-b",
+          "title": "Duplicate metadata",
+          "abstract": "B.",
+          "authors": [
+            "Dana"
+          ],
+          "year": 2024,
+          "doi": "10.1000/shared",
+          "url": "https://example.org/papers/dup-b",
+          "open_access_pdf_url": null,
+          "retrieved_at": "2026-09-17T00:00:00+00:00"
+        }
+      ],
+      "expected_ids": [
+        "dup-a"
+      ],
+      "expected_status": "completed",
+      "expected_duplicates_removed": 1
+    },
+    {
+      "id": "paper-empty",
+      "query": "no fixture papers",
+      "papers": [],
+      "expected_ids": [],
+      "expected_status": "no_results",
+      "expected_duplicates_removed": 0
+    },
+    {
+      "id": "arxiv-rich-metadata",
+      "query": "open scholarly metadata",
+      "papers": [
+        {
+          "paper_id": "arxiv:2609.12345",
+          "title": "Open Scholarly Metadata",
+          "abstract": "An arXiv fixture abstract.",
+          "authors": [
+            "Ada Researcher"
+          ],
+          "year": 2026,
+          "doi": "10.1000/arxiv.fixture",
+          "url": "https://arxiv.org/abs/2609.12345",
+          "open_access_pdf_url": "https://arxiv.org/pdf/2609.12345",
+          "retrieved_at": "2026-09-17T00:00:00+00:00",
+          "provider": "arxiv",
+          "published_date": "2026-09-16",
+          "providers": [
+            "arxiv"
+          ]
+        }
+      ],
+      "expected_ids": [
+        "arxiv:2609.12345"
+      ],
+      "expected_status": "completed",
+      "expected_duplicates_removed": 0,
+      "expected_published_dates": [
+        "2026-09-16"
+      ],
+      "expected_providers": [
+        [
+          "arxiv"
+        ]
+      ]
+    }
+  ]
+}

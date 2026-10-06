@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-reading-fixture-v1",
+  "kind": "synthetic_regression_not_live_quality",
+  "dataset_sha256": "cee63d8bb14914ba9ee095388decf879c0858c8b751f1b149958e9370ff08fcb",
+  "code_sha256": "9e26bc8a3882faf932c5d8515d6f10afab19c2f4374ceaef3da76b1ea3e8d71c",
+  "passed": 4,
+  "failed": 0,
+  "api_requests": 0,
+  "cases": [
+    {
+      "case_id": "exact_quote",
+      "passed": true,
+      "run_id": "b839f98581484d0a8a8374d54a102bf8",
+      "metrics": {
+        "sources_requested": 1,
+        "sources_read": 1,
+        "source_read_success": 1.0,
+        "failures": 0,
+        "cache_hits": 0,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "latency_seconds": 0.005539,
+        "quote_integrity": 1.0,
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null
+      }
+    },
+    {
+      "case_id": "partial_failure",
+      "passed": true,
+      "run_id": "d43bdc1dccdd4173b80487ee6ee1f9bd",
+      "metrics": {
+        "sources_requested": 2,
+        "sources_read": 1,
+        "source_read_success": 0.5,
+        "failures": 1,
+        "cache_hits": 0,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "latency_seconds": 0.002246,
+        "quote_integrity": 1.0,
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null
+      }
+    },
+    {
+      "case_id": "inert_hostile_text",
+      "passed": true,
+      "run_id": "bf856e705a6b4235b7386223f97577aa",
+      "metrics": {
+        "sources_requested": 1,
+        "sources_read": 1,
+        "source_read_success": 1.0,
+        "failures": 0,
+        "cache_hits": 0,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "latency_seconds": 0.001529,
+        "quote_integrity": 1.0,
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null
+      }
+    },
+    {
+      "case_id": "all_unavailable",
+      "passed": true,
+      "run_id": "91e0c923ddf24460ac2ebf44a1aa6c76",
+      "metrics": {
+        "sources_requested": 1,
+        "sources_read": 0,
+        "source_read_success": 0.0,
+        "failures": 1,
+        "cache_hits": 0,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "latency_seconds": 0.001628,
+        "quote_integrity": null,
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null
+      }
+    }
+  ]
+}

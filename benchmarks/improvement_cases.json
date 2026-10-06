@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-improvement-loop-fixture-v1",
+  "cases": [
+    {"case_id": "priority_selection"},
+    {"case_id": "research_transition"},
+    {"case_id": "hypothesis_dedup"},
+    {"case_id": "isolated_validation"}
+  ]
+}

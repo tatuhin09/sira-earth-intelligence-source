@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-evolution-v1.4a",
+  "cases": [
+    {
+      "id": "deterministic_first_strategy"
+    },
+    {
+      "id": "rejected_strategy_alternative"
+    },
+    {
+      "id": "duplicate_strategy_dedup"
+    },
+    {
+      "id": "strategy_exhaustion"
+    },
+    {
+      "id": "recent_success_suppression"
+    },
+    {
+      "id": "aggregate_safe_history"
+    }
+  ]
+}

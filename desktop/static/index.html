@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>SIRA Control Center</title>
+  <link rel="icon" href="/sira.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img class="brand-logo" src="/sira.svg" alt="SIRA">
+        <div class="brand-copy">
+          <div class="brand-name">SIRA</div>
+          <div class="brand-subtitle">Research • Learn • Improve</div>
+        </div>
+      </div>
+
+      <nav id="nav">
+        <button class="nav-item active" data-view="dashboard"><span class="nav-icon">⌂</span><span>Dashboard</span></button>
+        <button class="nav-item" data-view="chat"><span class="nav-icon">◉</span><span>Chat with SIRA</span></button>
+        <button class="nav-item" data-view="activity"><span class="nav-icon">≋</span><span>Activity</span></button>
+        <button class="nav-item" data-view="research"><span class="nav-icon">⌁</span><span>Research</span></button>
+        <button class="nav-item" data-view="memory"><span class="nav-icon">▱</span><span>Memory</span></button>
+        <button class="nav-item" data-view="providers"><span class="nav-icon">◇</span><span>Providers</span></button>
+        <button class="nav-item" data-view="promotions"><span class="nav-icon">✧</span><span>Promotions</span></button>
+        <button class="nav-item" data-view="health"><span class="nav-icon">✚</span><span>Tests & Health</span></button>
+        <button class="nav-item" data-view="notifications"><span class="nav-icon">●</span><span>Notifications</span></button>
+        <button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span><span>Settings</span></button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-good"><span class="dot good"></span><span id="sidebar-health">Checking health…</span></div>
+        <div class="mini-system-row">Generation <strong id="side-generation">—</strong></div>
+        <div class="mini-system-row">Runtime <strong id="sidebar-runtime">Loading…</strong></div>
+        <div id="sidebar-revision" class="muted tiny">—</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Dashboard</h1>
+          <p id="page-subtitle">Overview of SIRA's autonomous runtime, system health and recent activity.</p>
+        </div>
+        <div class="top-actions">
+          <div class="clock">
+            <span id="local-date">—</span>
+            <strong id="local-time">—</strong>
+          </div>
+          <button id="refresh-btn" class="button secondary">Refresh</button>
+          <button id="runtime-btn" class="button primary">Loading…</button>
+        </div>
+      </header>
+
+      <section id="view-dashboard" class="view active">
+        <div class="dashboard-grid">
+          <div class="dashboard-main">
+            <div class="hero-grid">
+              <article class="card runtime-card">
+                <div class="card-kicker">RUNTIME STATUS</div>
+                <div class="runtime-line">
+                  <div>
+                    <div id="runtime-state" class="metric-xl">—</div>
+                    <p id="runtime-copy" class="muted">Reading protected runtime state…</p>
+                  </div>
+                  <span id="runtime-pill" class="pill">—</span>
+                </div>
+                <div class="mini-grid">
+                  <div><span class="label">Generation</span><strong id="generation">—</strong></div>
+                  <div><span class="label">Worker</span><strong id="worker">—</strong></div>
+                  <div><span class="label">State health</span><strong id="state-health">—</strong></div>
+                </div>
+              </article>
+
+              <article class="card release-card">
+                <div class="card-kicker">RELEASE ACCEPTANCE</div>
+                <div class="metric-row">
+                  <div id="release-ready" class="metric-xl">—</div>
+                  <span id="release-pill" class="pill">—</span>
+                </div>
+                <p id="release-copy" class="muted">Loading final acceptance state…</p>
+                <div class="inline-actions">
+                  <button id="release-refresh" class="button compact secondary">Run Release Check</button>
+                  <button class="button compact ghost" data-view-jump="health">View Details</button>
+                </div>
+              </article>
+            </div>
+
+            <div class="stat-grid">
+              <article class="stat-card"><span class="label">Verified Knowledge</span><strong id="core-knowledge-count">—</strong><span id="core-knowledge-state" class="muted tiny">—</span></article>
+              <article class="stat-card"><span class="label">Active goals</span><strong id="core-goal-count">—</strong><span class="muted tiny">Owner learning</span></article>
+              <article class="stat-card"><span class="label">Notifications</span><strong id="notification-count">—</strong><button class="button compact ghost" data-view-jump="notifications">View Notifications</button></article>
+              <article class="stat-card"><span class="label">Git Repository</span><strong id="git-state">—</strong><span id="git-revision" class="muted tiny">—</span></article>
+            </div>
+
+            <div class="two-col">
+              <article class="card core-card">
+                <div class="card-kicker">CURRENT CORE WORK</div><h2 id="core-task-title">Waiting for work</h2>
+                <div id="core-current-task" class="detail-list"></div>
+              </article>
+              <article class="card core-card">
+                <div class="card-kicker">LEARNING GOALS</div><h2 id="core-goals-title">Owner priorities</h2>
+                <div id="core-goals" class="core-list"></div>
+              </article>
+            </div>
+            <div class="two-col">
+              <article class="card core-card">
+                <div class="card-kicker">EVIDENCE-BACKED CAPABILITIES</div><h2>Current strengths and gaps</h2>
+                <div id="core-capabilities" class="core-list"></div>
+              </article>
+              <article class="card core-card">
+                <div class="card-kicker">WORKERS & SELF-IMPROVEMENT</div><h2 id="core-worker-title">No active worker task</h2>
+                <div id="core-workers" class="detail-list"></div>
+              </article>
+            </div>
+            <div class="two-col">
+              <article class="card core-card">
+                <div class="card-kicker">RECENT RESEARCH JOB EVIDENCE</div><h2 id="core-research-title">No recent research</h2>
+                <p id="core-research-capability" class="muted tiny">Overall Research capability: checking evidence…</p>
+                <div id="core-research" class="detail-list"></div>
+              </article>
+              <article class="card core-card">
+                <div class="card-kicker">PROVIDERS & AUTHORITY</div><h2 id="core-provider-title">Observed status</h2>
+                <div id="core-providers" class="detail-list"></div>
+              </article>
+            </div>
+
+            <div class="two-col">
+              <article class="card">
+                <div class="card-heading">
+                  <div><div class="card-kicker">LAST AUTONOMOUS CYCLE</div><h2 id="last-cycle-title">No cycle loaded</h2></div>
+                  <span id="last-cycle-pill" class="pill good">Completed</span>
+                </div>
+                <div id="last-cycle-body" class="detail-list"></div>
+              </article>
+
+              <article class="card">
+                <div class="card-heading"><div><div class="card-kicker">RECENT ACTIVITY</div><h2>System timeline</h2></div><button class="button compact ghost" data-view-jump="activity">View All</button></div>
+                <div id="recent-activity" class="timeline"></div>
+              </article>
+            </div>
+
+            <div class="health-strip">
+              <article class="health-card"><span>Release check</span><strong id="tests-summary">—</strong><small>Current acceptance evidence</small></article>
+              <article class="health-card"><span>Memory Health</span><strong id="memory-strip">—</strong><small>Primary database</small></article>
+              <article class="health-card"><span>Owner authority</span><strong id="core-authority">—</strong><small>Core is descriptive</small></article>
+              <article class="health-card"><span>Recent research job evidence</span><strong id="core-research-state">—</strong><small>One job does not establish broad capability</small></article>
+            </div>
+          </div>
+
+          <aside class="dashboard-rail">
+            <article class="card rail-card">
+              <div class="card-heading"><div><div class="card-kicker">CHAT WITH SIRA</div><h2>Operational assistant</h2></div><button class="icon-button" data-view-jump="chat">↗</button></div>
+              <div id="dashboard-chat" class="dashboard-chat"></div>
+              <form id="dashboard-chat-form" class="rail-chat-form">
+                <input id="dashboard-chat-input" maxlength="4000" placeholder="Message SIRA…">
+                <button class="send-button" type="submit">➤</button>
+              </form>
+            </article>
+
+            <article class="card rail-card">
+              <div class="card-kicker">QUICK ACTIONS</div>
+              <div class="quick-grid">
+                <button data-quick="refresh">Check Status</button>
+                <button data-quick="release">Release Check</button>
+                <button data-view-jump="memory">View Memory</button>
+                <button data-view-jump="activity">View Activity</button>
+              </div>
+            </article>
+
+            <article class="card rail-card">
+              <div class="card-kicker">LATEST NOTIFICATIONS</div>
+              <div id="dashboard-notification" class="empty-state">No owner notifications recorded.</div>
+              <button class="button compact ghost" data-view-jump="notifications">View Notifications</button>
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-chat" class="view">
+        <div class="chat-layout">
+          <article class="card chat-card">
+            <div class="chat-head">
+              <div><div class="card-kicker">ONE SIRA CORE</div><h2>Memory-aware conversation</h2></div>
+              <span id="chat-mode-pill" class="pill neutral">Checking model…</span>
+            </div>
+            <p id="chat-current-status" class="muted tiny">Current SIRA status: loading…</p>
+            <div id="chat-messages" class="chat-messages"></div>
+            <div id="chat-response-meta" class="chat-response-meta"></div>
+            <form id="chat-form" class="chat-form">
+              <textarea id="chat-input" maxlength="4000" placeholder="Talk to SIRA, or use Research for source-grounded investigation…"></textarea>
+              <div class="chat-action-stack">
+                <button id="research-send-btn" class="button secondary" type="button">Research</button>
+                <button id="chat-send-btn" class="button primary" type="submit">Send</button>
+              </div>
+            </form>
+            <div id="chat-research-progress" class="research-progress hidden"></div>
+          </article>
+          <aside class="card chat-info">
+            <div class="card-kicker">MODEL-BACKED CHAT</div>
+            <h3 id="chat-model-title">Safe guarded conversation</h3>
+            <p id="chat-model-copy" class="muted">Checking capability, credential and local cost guard…</p>
+            <div id="chat-usage" class="detail-list"></div>
+            <label class="confirmation-box">
+              <input id="free-tier-confirm" type="checkbox">
+              <span>
+                I confirm this Gemini project is intentionally configured for
+                zero-cost/no-charge use. SIRA must not enable billing or paid spending.
+              </span>
+            </label>
+            <button id="save-chat-settings" class="button secondary full-width">Save chat setting</button>
+            <div class="research-guard-box">
+              <div class="card-kicker">GENERAL WEB RESEARCH</div>
+              <label class="confirmation-box">
+                <input id="search-free-confirm" type="checkbox">
+                <span>
+                  I confirm Gemini Search grounding is intentionally configured
+                  for zero-cost/no-charge use. SIRA must not enable billing.
+                </span>
+              </label>
+              <button id="save-research-settings" class="button secondary full-width">Save research setting</button>
+            </div>
+            <div class="notice">Free-form chat has no Start/Stop, promotion, payment, package-install or protected-code authority.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="view-activity" class="view">
+        <article class="card">
+          <div class="card-kicker">AUDIT & ACTIVITY</div><h2>Recent runtime artifacts</h2>
+          <div id="activity-list" class="timeline large"></div>
+        </article>
+      </section>
+
+      <section id="view-research" class="view">
+        <div class="hero-grid">
+          <article class="card">
+            <div class="card-kicker">EXPLICIT VERIFIED RESEARCH</div>
+            <div class="metric-xl">Free-first</div>
+            <p class="muted">Scholarly and biomedical research use free/public sources first. General web Search is guarded by a separate zero-cost confirmation.</p>
+            <div id="research-policy-detail" class="detail-list"></div>
+          </article>
+          <article class="card">
+            <div class="card-kicker">CURRENT RESEARCH JOB</div>
+            <div id="research-current" class="empty-state">No active research job.</div>
+          </article>
+        </div>
+        <article class="card">
+          <div class="card-heading">
+            <div>
+              <div class="card-kicker">RESEARCH HISTORY</div>
+              <h2>Evidence, verification and sources</h2>
+            </div>
+          </div>
+          <div id="research-history" class="research-history"></div>
+        </article>
+      </section>
+
+      <section id="view-memory" class="view">
+        <div class="hero-grid">
+          <article class="card"><div class="card-kicker">MEMORY HEALTH</div><div id="memory-health" class="metric-xl">—</div><p id="memory-health-copy" class="muted">—</p></article>
+          <article class="card"><div class="card-kicker">PERSISTENT MEMORY & VERIFIED KNOWLEDGE</div><div id="memory-detail" class="detail-list"></div></article>
+        </div>
+      </section>
+
+      <section id="view-providers" class="view">
+        <div class="hero-grid">
+          <article class="card"><div class="card-kicker">PROVIDER POLICY</div><div class="metric-xl">Free-first</div><p class="muted">Public/free providers are preferred. Metered providers remain subject to capability, access and budget gates.</p></article>
+          <article class="card"><div class="card-kicker">CURRENT AUTHORITY</div><div id="provider-authority" class="detail-list"></div></article>
+        </div>
+        <article class="card"><div class="card-kicker">OBSERVED PROVIDERS</div><div id="provider-list" class="provider-grid"></div></article>
+      </section>
+
+      <section id="view-promotions" class="view">
+        <div class="hero-grid">
+          <article class="card"><div class="card-kicker">PROMOTION PIPELINE</div><div class="metric-xl">Protected</div><p class="muted">Writer → verification → independent evaluator → protected authorization → transactional promotion → post-verification → rollback.</p></article>
+          <article class="card"><div class="card-kicker">LAST CYCLE PROMOTION</div><div id="promotion-detail" class="detail-list"></div></article>
+        </div>
+        <article class="card"><div class="card-kicker">RECENT PROMOTION / RECOVERY ACTIVITY</div><div id="promotion-activity" class="timeline large"></div></article>
+      </section>
+
+      <section id="view-health" class="view">
+        <article class="card">
+          <div class="card-heading"><div><div class="card-kicker">TESTS & SYSTEM HEALTH</div><h2>Release and integrity snapshot</h2></div><span id="health-release-pill" class="pill">—</span></div>
+          <div id="health-grid" class="health-grid"></div>
+        </article>
+      </section>
+
+      <section id="view-notifications" class="view">
+        <article class="card">
+          <div class="card-heading"><div><div class="card-kicker">OWNER NOTIFICATIONS</div><h2>Recorded owner notices</h2></div><button id="deliver-btn" class="button secondary">Deliver pending</button></div>
+          <div id="notification-list" class="notification-list"></div>
+        </article>
+      </section>
+
+      <section id="view-settings" class="view">
+        <div class="two-col">
+          <article class="card"><div class="card-kicker">LOCAL DESKTOP</div><h2>Connection</h2><div class="detail-list"><div><span>Binding</span><strong>127.0.0.1 only</strong></div><div><span>Control protection</span><strong>Session token</strong></div><div><span>External API for UI</span><strong>None</strong></div></div></article>
+          <article class="card"><div class="card-kicker">OWNER CONTROL</div><h2>Runtime policy</h2><p class="muted">Autonomy stays explicitly owner-controlled. Desktop uses the same protected Start/Stop implementation as CLI.</p></article>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <span>SIRA Control Center v0.4</span>
+        <span>Local • Private • Under Your Control</span>
+      </footer>
+      <div id="toast" class="toast"></div>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

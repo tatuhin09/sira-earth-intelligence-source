@@ -1,0 +1,51 @@
+{
+  "suite_id": "sira-synthesis-structural-v1",
+  "kind": "synthetic_synthesis_regression_not_factual_quality",
+  "cases": [
+    {
+      "id": "supported_claim",
+      "question": "What does venv create?",
+      "text": "The venv module creates lightweight virtual environments.",
+      "proposal": {"answer_language": "en", "claims": [{"id": "C1", "text": "venv creates lightweight virtual environments.", "support_passage_ids": ["E1"], "opposing_passage_ids": []}]},
+      "verdict": {"claims": [{"id": "C1", "decision": "supported", "support_passage_ids": ["E1"], "opposing_passage_ids": [], "reason": "Direct support."}]},
+      "expected_status": "completed",
+      "expected_accepted": 1
+    },
+    {
+      "id": "unsupported_claim",
+      "question": "Does venv isolate the operating system?",
+      "text": "Virtual environments isolate installed Python packages.",
+      "proposal": {"answer_language": "en", "claims": [{"id": "C1", "text": "venv isolates the operating system.", "support_passage_ids": ["E1"], "opposing_passage_ids": []}]},
+      "verdict": {"claims": [{"id": "C1", "decision": "unsupported", "support_passage_ids": [], "opposing_passage_ids": ["E1"], "reason": "Not stated."}]},
+      "expected_status": "insufficient_evidence",
+      "expected_accepted": 0
+    },
+    {
+      "id": "mixed_claim",
+      "question": "What is isolated?",
+      "text": "Packages are isolated, while the operating system is shared.",
+      "proposal": {"answer_language": "en", "claims": [{"id": "C1", "text": "Packages and the operating system are isolated.", "support_passage_ids": ["E1"], "opposing_passage_ids": []}]},
+      "verdict": {"claims": [{"id": "C1", "decision": "mixed", "support_passage_ids": ["E1"], "opposing_passage_ids": ["E1"], "reason": "Only partly supported."}]},
+      "expected_status": "insufficient_evidence",
+      "expected_accepted": 0
+    },
+    {
+      "id": "unknown_passage",
+      "question": "What is supported?",
+      "text": "Only evidence E1 exists.",
+      "proposal": {"answer_language": "en", "claims": [{"id": "C1", "text": "An invented claim.", "support_passage_ids": ["E9"], "opposing_passage_ids": []}]},
+      "verdict": {"claims": [{"id": "C1", "decision": "supported", "support_passage_ids": ["E9"], "opposing_passage_ids": [], "reason": "Bad reference."}]},
+      "expected_status": "insufficient_evidence",
+      "expected_accepted": 0
+    },
+    {
+      "id": "hostile_text_inert",
+      "question": "What string appears?",
+      "text": "The page contains a hostile string as data: <script>alert(1)</script>.",
+      "proposal": {"answer_language": "en", "claims": [{"id": "C1", "text": "The page contains <script>alert(1)</script> as text.", "support_passage_ids": ["E1"], "opposing_passage_ids": []}]},
+      "verdict": {"claims": [{"id": "C1", "decision": "supported", "support_passage_ids": ["E1"], "opposing_passage_ids": [], "reason": "Literal evidence."}]},
+      "expected_status": "completed",
+      "expected_accepted": 1
+    }
+  ]
+}

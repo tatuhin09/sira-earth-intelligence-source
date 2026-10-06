@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-retrieval-fixture-v1",
+  "kind": "synthetic_regression_not_live_quality",
+  "dataset_sha256": "e26189c269888478e428c413072a297ea51da722214890a3a5c54a435d4fe3f9",
+  "code_sha256": "11c38cf00132bff79e6222ea99424ee2ea6ea73c9ae99c2899f9b87fa350d65c",
+  "passed": 3,
+  "failed": 0,
+  "api_requests": 0,
+  "cases": [
+    {
+      "case_id": "deduplicate",
+      "passed": true,
+      "run_id": "5c811489f110491a90ff1c026708ee30",
+      "metrics": {
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null,
+        "citation_reference_resolution": 1.0,
+        "unique_hostnames": 2,
+        "retrieval_success": true,
+        "source_count": 2,
+        "duplicates_removed": 1,
+        "rejected_sources": 0,
+        "latency_seconds": 0.000666,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "failures": 0,
+        "cache_hit": false
+      }
+    },
+    {
+      "case_id": "untrusted_text",
+      "passed": true,
+      "run_id": "3241b790a6ad4d339865dfbf21fd9e24",
+      "metrics": {
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null,
+        "citation_reference_resolution": 1.0,
+        "unique_hostnames": 1,
+        "retrieval_success": true,
+        "source_count": 1,
+        "duplicates_removed": 0,
+        "rejected_sources": 1,
+        "latency_seconds": 0.000369,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "failures": 0,
+        "cache_hit": false
+      }
+    },
+    {
+      "case_id": "no_results",
+      "passed": true,
+      "run_id": "6ed62e56b3a44e828d7ef84ac0ad9f76",
+      "metrics": {
+        "factual_accuracy": null,
+        "citation_correctness": null,
+        "citation_coverage": null,
+        "source_quality": null,
+        "source_diversity": null,
+        "citation_reference_resolution": null,
+        "unique_hostnames": 0,
+        "retrieval_success": false,
+        "source_count": 0,
+        "duplicates_removed": 0,
+        "rejected_sources": 0,
+        "latency_seconds": 0.000286,
+        "api_requests": 0,
+        "reported_credits": 0,
+        "failures": 0,
+        "cache_hit": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-learning-memory-quality-v1.3-batch3",
+  "cases": [
+    {
+      "case_id": "deduplicate_rate_limit"
+    },
+    {
+      "case_id": "validated_success"
+    },
+    {
+      "case_id": "rejected_claim"
+    },
+    {
+      "case_id": "search_prior_failure"
+    },
+    {
+      "case_id": "validated_outweighs_observed"
+    },
+    {
+      "case_id": "fresh_outweighs_stale"
+    },
+    {
+      "case_id": "contradiction_penalty"
+    },
+    {
+      "case_id": "synthetic_excluded_from_autonomous"
+    },
+    {
+      "case_id": "supersession_lineage"
+    },
+    {
+      "case_id": "protected_origin_separation"
+    },
+    {
+      "case_id": "near_duplicate_cluster"
+    },
+    {
+      "case_id": "unrelated_not_clustered"
+    },
+    {
+      "case_id": "real_contradiction"
+    },
+    {
+      "case_id": "symmetric_relation_dedup"
+    },
+    {
+      "case_id": "synthetic_cannot_contaminate"
+    },
+    {
+      "case_id": "contradiction_does_not_supersede"
+    },
+    {
+      "case_id": "outcome_roundtrip"
+    },
+    {
+      "case_id": "retrieval_score_explained"
+    },
+    {
+      "case_id": "helped_feedback_boost"
+    },
+    {
+      "case_id": "irrelevant_feedback_penalty"
+    },
+    {
+      "case_id": "stale_memory_survives"
+    },
+    {
+      "case_id": "autonomous_synthetic_excluded"
+    },
+    {
+      "case_id": "retrieval_contradiction_penalty"
+    },
+    {
+      "case_id": "search_backward_compatible"
+    }
+  ]
+}

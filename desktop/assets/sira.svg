@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="ring" x1="60" y1="60" x2="452" y2="452" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset=".48" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#c026d3"/>
+    </linearGradient>
+    <radialGradient id="core" cx=".32" cy=".22" r=".9">
+      <stop offset="0" stop-color="#312e81"/>
+      <stop offset=".62" stop-color="#111827"/>
+      <stop offset="1" stop-color="#070b14"/>
+    </radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="118" fill="#060b16"/>
+  <circle cx="256" cy="256" r="174" fill="none" stroke="url(#ring)" stroke-width="22" opacity=".35" filter="url(#glow)"/>
+  <circle cx="256" cy="256" r="156" fill="url(#core)" stroke="url(#ring)" stroke-width="12"/>
+  <path d="M352 171c-24-18-55-28-91-28-61 0-102 27-102 70 0 48 45 61 94 72 38 9 57 16 57 34 0 19-19 31-51 31-37 0-71-14-98-38l-25 37c32 31 76 48 124 48 66 0 108-31 108-82 0-45-35-61-93-75-42-10-59-17-59-33 0-16 18-26 47-26 28 0 52 8 72 23z"
+        fill="#f8fafc"/>
+  <circle cx="126" cy="139" r="11" fill="#22d3ee"/>
+  <circle cx="388" cy="370" r="10" fill="#c026d3"/>
+</svg>

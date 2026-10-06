@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "suite_id": "sira-strategy-learner-v1",
+  "cases": [
+    {
+      "case_id": "deterministic_fallback"
+    },
+    {
+      "case_id": "positive_outcome_boost"
+    },
+    {
+      "case_id": "minimum_evidence_threshold"
+    },
+    {
+      "case_id": "negative_outcome_penalty"
+    },
+    {
+      "case_id": "synthetic_isolation"
+    },
+    {
+      "case_id": "contradiction_discount"
+    },
+    {
+      "case_id": "policy_veto"
+    },
+    {
+      "case_id": "aggregate_only_output"
+    }
+  ]
+}

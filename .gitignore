@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+.cache/
+runs/*
+!runs/.gitkeep
+*.pem
+*.key
+
+# SIRA generated/runtime state (local only)
+.sira_update_backups/
+improvements/
+memory/
+runtime/
